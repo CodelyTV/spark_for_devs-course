@@ -19,7 +19,8 @@ object FromCSVToSQL extends App {
     .csv(pathNetflixFile)
     .createOrReplaceTempView("netflix")
 
-  spark.sql("select * from netflix")
+  spark
+    .sql("select * from netflix")
     .show()
 
   // Making use of the csv data source options
@@ -32,7 +33,8 @@ object FromCSVToSQL extends App {
     .csv(pathNetflixFile)
     .createOrReplaceTempView("netflix")
 
-  spark.sql("SELECT * FROM netflix LIMIT 10")
+  spark
+    .sql("SELECT * FROM netflix LIMIT 10")
     .show()
 
   spark
@@ -60,7 +62,8 @@ object FromCSVToSQL extends App {
         |""".stripMargin)
     .show()
 
-  spark.sql("""
+  spark
+    .sql("""
       | SELECT lower(word), count(*) AS count
       |   FROM (
       |     SELECT explode(split(title, ' ')) as word from netflix

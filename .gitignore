@@ -1,0 +1,15 @@
+dist/*
+target/
+spark-warehouse/
+project/boot/
+project/plugins/project/
+.cache
+
+### Scala ###
+*.class
+*.log
+
+# Embedded metastore
+derby.log
+metastore_db/
+

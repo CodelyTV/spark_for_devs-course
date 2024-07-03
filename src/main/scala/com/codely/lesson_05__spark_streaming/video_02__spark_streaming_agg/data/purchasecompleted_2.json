@@ -1,0 +1,1 @@
+{"eventType": "PurchaseCompleted", "timestamp": "2024-02-07T19:29:01Z", "userId": "user196", "transactionId": "trans1050", "products": [{"productId": "prod571", "quantity": 1, "description": "Smart Light Switch", "category": "Smart Home", "price": 9000}], "eventId": "e3386641-c796-4d1e-ba25-db7be12c1faz"}

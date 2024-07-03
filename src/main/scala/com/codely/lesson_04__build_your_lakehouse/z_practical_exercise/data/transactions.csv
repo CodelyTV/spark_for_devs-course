@@ -1,0 +1,6 @@
+transactionId,userId,amount,date
+trans1,user1,100.50,2024-01-01
+trans2,user2,150.75,2024-01-03
+trans3,user1,200.00,2024-01-05
+trans4,user3,250.25,2024-01-07
+trans5,user4,300.10,2024-01-10
