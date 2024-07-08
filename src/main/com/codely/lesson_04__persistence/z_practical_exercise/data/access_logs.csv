@@ -1,0 +1,6 @@
+user_id,session_id,page_url,timestamp
+1,2001,<https://example.com/home,2023-01-01> 10:00:00
+2,2002,<https://example.com/about,2023-01-01> 10:05:00
+1,2003,<https://example.com/products,2023-01-02> 11:00:00
+3,2004,<https://example.com/contact,2023-01-02> 11:05:00
+2,2005,<https://example.com/home,2023-01-03> 12:00:00

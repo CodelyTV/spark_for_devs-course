@@ -1,0 +1,6 @@
+sessionId,userId,startTime,endTime,deviceType
+sess1,user1,2024-02-01T10:00:00,2024-02-01T11:00:00,Desktop
+sess2,user2,2024-02-01T11:15:00,2024-02-01T12:30:00,Mobile
+sess3,user1,2024-02-02T09:00:00,2024-02-02T09:45:00,Tablet
+sess4,user3,2024-02-02T14:00:00,2024-02-02T15:30:00,Desktop
+sess5,user4,2024-02-03T08:00:00,2024-02-03T09:00:00,Mobile

@@ -1,0 +1,58 @@
+name: "hive-s3"
+
+services:
+
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
+    image: localstack/localstack:3.4.0
+    ports:
+      - "127.0.0.1:4566:4566"
+      - "127.0.0.1:4510-4559:4510-4559"
+    environment:
+      - SERVICES=s3
+      - DEBUG=true
+      - DEFAULT_REGION=eu-west-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  init-s3-storage:
+    container_name: init-s3-storage
+    image: localstack/localstack:3.4.0
+    entrypoint: [ "bash", "-c", "awslocal --endpoint-url http://localstack-main:4566 s3 mb s3://my-bucket" ]
+    depends_on:
+      localstack:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:14-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    healthcheck:
+      test: [ "CMD", "psql", "-U", "${POSTGRES_USER}", "${POSTGRES_DB}" ]
+    ports:
+      - '5432:5432'
+
+  hive-metastore:
+    image: apache/hive:4.0.0-alpha-2
+    container_name: hive-metastore
+    environment:
+      - SERVICE_NAME=metastore
+      - DB_DRIVER=postgres
+      - HIVE_CUSTOM_CONF_DIR=/hive_custom_conf
+    ports:
+      - "9083:9083"
+    volumes:
+      - ./data/delta/osdp/spark-warehouse:/opt/spark/work-dir/data/delta/osdp/spark-warehouse
+      - ./hive/conf/hive-site.xml:/opt/hive/conf/hive-site.xml
+      - ./hive/conf/jars/hadoop-aws-3.2.2.jar:/opt/hive/lib/hadoop-aws-3.2.2.jar
+      - ./hive/conf/jars/aws-java-sdk-bundle-1.11.375.jar:/opt/hive/lib/aws-java-sdk-bundle-1.11.375.jar
+      - ./hive/conf/.hiverc:/opt/hive/conf/.hiverc
+    depends_on:
+      postgres:
+        condition: service_healthy

@@ -1,9 +1,0 @@
-sessionId,eventType,timestamp
-sess1,click,2024-02-01T10:05:00
-sess1,scroll,2024-02-01T10:10:00
-sess2,click,2024-02-01T11:20:00
-sess2,scroll,2024-02-01T11:25:00
-sess3,click,2024-02-02T09:05:00
-sess3,scroll,2024-02-02T09:10:00
-sess4,click,2024-02-02T14:10:00
-sess5,scroll,2024-02-03T08:05:00
