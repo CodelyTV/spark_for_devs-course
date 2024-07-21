@@ -13,3 +13,7 @@ project/plugins/project/
 derby.log
 metastore_db/
 
+# docker
+docker/volume/*
+
+
