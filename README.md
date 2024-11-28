@@ -19,5 +19,5 @@
 
 <p align="center">
   <a href="https://github.com/CodelyTV/spark_for_devs-course/stargazers">Stars are welcome 😊</a><br><br>
-  Course (Spanish): <a href="#">Spark for programmers</a>
+  Course (Spanish): <a href="https://pro.codely.com/library/spark-para-developers-230932/655247/about/">Spark for programmers</a>
 </p>
