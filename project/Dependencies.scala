@@ -9,7 +9,7 @@ object Dependencies {
     "org.apache.spark"       %% "spark-streaming" % "3.5.0",
     "org.apache.spark"       %% "spark-hive"      % "3.5.0",
     "io.delta"               %% "delta-spark"     % "3.1.0",
-    "org.apache.hadoop"       % "hadoop-aws"      % "3.2.2"
+    "org.apache.hadoop"       % "hadoop-aws"      % "3.2.4"
   )
   private val test = Seq(
     "org.scalatest" %% "scalatest"     % "3.2.19",
