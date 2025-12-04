@@ -3,7 +3,7 @@ import sbt._
 object Dependencies {
   private val prod = Seq(
     "com.github.nscala-time" %% "nscala-time"     % "2.34.0",
-    "com.lihaoyi"            %% "pprint"          % "0.9.0",
+    "com.lihaoyi"            %% "pprint"          % "0.9.6",
     "org.apache.spark"       %% "spark-core"      % "3.5.0" % Provided,
     "org.apache.spark"       %% "spark-sql"       % "3.5.0" % Provided,
     "org.apache.spark"       %% "spark-streaming" % "3.5.0",
